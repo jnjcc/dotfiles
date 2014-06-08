@@ -1,0 +1,46 @@
+****** common plugins
+* Tagbar 2.6.1 (http://www.vim.org/scripts/script.php?script_id=3465)
+    autoload/tagbar.vim
+    doc/tagbar.txt
+    doc/tags
+    plugin/tagbar.vim
+    syntax/tagbar.vim
+
+* NerdTree 4.2.0 (http://www.vim.org/scripts/script.php?script_id=1658)
+    doc/NERD_tree.txt
+    nerdtree_plugin/exec_menuitem.vim
+    nerdtree_plugin/fs_menu.vim
+    plugin/NERD_tree.vim
+    syntax/nerdtree.vim
+
+****** C/C++
+* tags for std c++ (http://www.vim.org/scripts/script.php?script_id=2358)
+    tags/cpptags
+
+* OmniCppComplete 0.41 (http://www.vim.org/scripts/script.php?script_id=1520)
+    after/ftplugin/c.vim
+    after/ftplugin/cpp.vim
+    autoload/omni/common/debug.vim
+    autoload/omni/common/utils.vim
+    autoload/omni/cpp/complete.vim
+    autoload/omni/cpp/includes.vim
+    autoload/omni/cpp/items.vim
+    autoload/omni/cpp/maycomplete.vim
+    autoload/omni/cpp/namespaces.vim
+    autoload/omni/cpp/settings.vim
+    autoload/omni/cpp/tokenizer.vim
+    autoload/omni/cpp/utils.vim
+    doc/omnicppcomplete.txt
+
+****** Python
+* python_pydoc 2.0 (http://www.vim.org/scripts/script.php?script_id=910)
+    ftplugin/python_pydoc.vim
+
+* pyflakes 3.01 (http://www.vim.org/scripts/script.php?script_id=2441)
+    ftplugin/python/pyflakes.vim
+    ftplugin/python/pyflakes/
+
+****** HTML
+* xml.vim 1.40 (http://www.vim.org/scripts/script.php?script_id=1397)
+    ftplugin/xml.vim
+    ftplugin/html.vim
