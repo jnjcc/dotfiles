@@ -20,6 +20,7 @@
 (setq make-backup-files nil)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(scroll-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
@@ -28,11 +29,20 @@
 (show-paren-mode t)
 (pc-selection-mode)
 (delete-selection-mode t)
+;; highlight text selection
+(transient-mark-mode t)
+;; turn on syntax highlighting
+(global-font-lock-mode t)
 ;; Mode line: we want `buffer-name` + `default-directory`...
 (setq-default mode-line-buffer-identification
               '("%b:" default-directory))
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
+
+;;; Editing
+(setq-default show-trailing-whitespace t)
+;; M-x delete-trailing-whitespace
+(set-face-background 'trailing-whitespace "red")
 
 ;;;; 3) Emacs plugins
 ;; linum
