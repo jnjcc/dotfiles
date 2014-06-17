@@ -33,6 +33,8 @@ set incsearch
 set hlsearch
 
 """""" Editing
+highlight TrailingWhitespace ctermbg=red guibg=red
+match TrailingWhitespace /\s\+$/
 """ Encoding
 set encoding=utf-8
 set termencoding=utf-8
@@ -78,6 +80,8 @@ set foldcolumn=0
 """""" Programming languages
 let mapleader=";"
 let g:mapleader=";"
+
+" nnoremap <leader>w :call TrimTrailingWhitespace()<CR>
 
 """""" C/C++
 set tags=tags
@@ -164,4 +168,10 @@ fun! IncludeGuard()
     call append(0, "#ifndef " . guard)
     call append(1, "#define " . guard)
     call append(line("$"), "#endif  // " . guard)
+endfun
+fun! TrimTrailingWhitespace()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//g
+    call cursor(l, c)
 endfun
