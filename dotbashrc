@@ -1,0 +1,4 @@
+export PS1="\u@\h:\w\$ "
+
+export GIT_EDITOR="vim"
+alias emacs="emacs -nw"
