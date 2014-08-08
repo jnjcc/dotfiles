@@ -113,7 +113,7 @@ set cot-=preview
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 sts=4
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "" pydoc: <leader>pw
-let g:pydoc_open_cmd = 'vsplit' 
+let g:pydoc_open_cmd = 'vsplit'
 
 """""" PHP
 autocmd FileType php setlocal cindent expandtab sw=4 ts=8 softtabstop=4
@@ -122,7 +122,7 @@ autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
 """""" Javascript, etc
-autocmd FileType javascript setlocal cindent expandtab sw=4 ts=8 sts=4
+autocmd FileType javascript setlocal cindent expandtab sw=2 ts=8 sts=4
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 """ HTML
