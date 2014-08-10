@@ -165,11 +165,32 @@ This is an optimized way for Lisp to deliver output to Emacs."
 
 (defvar *listener-eval-function* 'repl-eval)
 
+(defvar *listener-saved-value* nil)
+
+(defslimefun listener-save-value (slimefun &rest args)
+  "Apply SLIMEFUN to ARGS and save the value.
+The saved value should be visible to all threads and retrieved via
+LISTENER-GET-VALUE."
+  (setq *listener-saved-value* (apply slimefun args))
+  t)
+
+(defslimefun listener-get-value ()
+  "Get the last value saved by LISTENER-SAVE-VALUE.
+The value should be produced as if it were requested through
+LISTENER-EVAL directly, so that spacial variables *, etc are set."
+  (listener-eval (let ((*package* (find-package :keyword)))
+                   (write-to-string '*listener-saved-value*))))
+
 (defslimefun listener-eval (string &key (window-width nil window-width-p))
   (if window-width-p
       (let ((*print-right-margin* window-width))
         (funcall *listener-eval-function* string))
       (funcall *listener-eval-function* string)))
+
+(defslimefun clear-repl-variables ()
+  (let ((variables '(*** ** * /// // / +++ ++ +)))
+    (loop for variable in variables
+       do (setf (symbol-value variable) nil))))
 
 (defvar *send-repl-results-function* 'send-repl-results-to-emacs)
 
@@ -185,11 +206,6 @@ This is an optimized way for Lisp to deliver output to Emacs."
                  +++ ++  ++ +  + last-form)
            (funcall *send-repl-results-function* values))))))
   nil)
-
-(defslimefun clear-repl-variables ()
-  (let ((variables '(*** ** * /// // / +++ ++ +)))
-    (loop for variable in variables
-          do (setf (symbol-value variable) nil))))
 
 (defun track-package (fun)
   (let ((p *package*))

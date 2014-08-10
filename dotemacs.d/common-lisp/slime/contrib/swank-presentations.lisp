@@ -76,16 +76,18 @@ The secondary value indicates the absence of an entry."
           (:no-error (value)
             (values value t))))
        ((:inspected-part part-index)
-        (declare (special *inspectee-parts*))
-        (if (< part-index (length *inspectee-parts*))
-            (values (inspector-nth-part part-index) t)
-            (values nil nil)))))))
+        (inspector-nth-part part-index))))))
 
 (defslimefun lookup-presented-object-or-lose (id)
   "Get the result of the previous REPL evaluation with ID."
   (multiple-value-bind (object foundp) (lookup-presented-object id)
     (cond (foundp object)
           (t (error "Attempt to access unrecorded object (id ~D)." id)))))
+
+(defslimefun lookup-and-save-presented-object-or-lose (id)
+  "Get the object associated with ID and save it in the presentation tables."
+  (let ((obj (lookup-presented-object-or-lose id)))
+    (save-presented-object obj)))
 
 (defslimefun clear-repl-results ()
   "Forget the results of all previous REPL evaluations."
