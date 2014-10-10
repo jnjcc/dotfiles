@@ -35,6 +35,8 @@ set hlsearch
 """""" Editing
 highlight TrailingWhitespace ctermbg=red guibg=red
 match TrailingWhitespace /\s\+$/
+highlight LineOverFlow ctermbg=red guibg=red ctermfg=white
+match LineOverFlow /\%81v.\+/
 """ Encoding
 set encoding=utf-8
 set termencoding=utf-8
