@@ -113,6 +113,8 @@ set cot-=preview
 
 """""" Python
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 sts=4
+"" `vim-indent-guides` does not work on vim 7.2, try `n<<` or `n>>`
+autocmd FileType python setlocal foldmethod=indent foldlevel=99
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "" pydoc: <leader>pw
 let g:pydoc_open_cmd = 'vsplit'
