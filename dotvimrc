@@ -14,8 +14,8 @@ endif
 """ Resize
 map - <C-W>-
 map + <C-W>+
-map > <C-W>>
-map < <C-W><
+" map > <C-W>>
+" map < <C-W><
 
 """ status line
 set laststatus=2
