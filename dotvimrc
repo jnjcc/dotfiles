@@ -32,6 +32,8 @@ set statusline+=\ \ \ \ \ \ [%{&ff}/%Y]
 set statusline+=%=%-10.(%l,%c%V%)\ \ \ %p%%/%L
 hi StatusLine ctermfg=gray ctermbg=black
 hi StatusLineNC ctermfg=darkblue ctermbg=gray
+"" might overwrite statusline
+" set wildmenu
 
 """""" Searching
 set ignorecase
@@ -102,7 +104,11 @@ let g:mapleader=";"
 
 """""" C/C++
 set tags=tags
-autocmd FileType c,cc,cpp setlocal cindent expandtab
+autocmd FileType c,cc,cpp
+    \ setlocal cindent expandtab |
+    \ let &path .= "/usr/include,/usr/local/include," |
+    \ setlocal colorcolumn=80 | highlight ColorColumn ctermbg=darkgray |
+    \ setlocal wildignore=*.o,*.a,*.so
 autocmd FileType c setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType cc,cpp setlocal shiftwidth=2 tabstop=4 softtabstop=4
 autocmd BufNewFile,BufRead *.h,*.hpp map <leader>g :call IncludeGuard()<CR>
