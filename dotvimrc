@@ -1,4 +1,8 @@
 """""""""""""""""""" General
+"""""" Variables
+let mapleader=";"
+let g:mapleader=";"
+
 """""" Reading
 set nocompatible
 set backspace=2
@@ -63,6 +67,14 @@ set nobackup
 " set backup
 " set backupdir=~/.vim/backup/
 
+""" Tabs
+let g:lasttab=1
+au TabLeave * let g:lasttab=tabpagenr()
+map <leader>o :tabonly<CR>
+map <leader>m :tabmove<CR>
+map <leader>e :tabedit <C-R>=expand("%:p:h")<CR>
+nmap <leader>l :exe "tabn ". g:lasttab<CR>
+
 "" auto reload when file changed
 " set ar
 
@@ -82,7 +94,7 @@ set showmode
 set autoindent
 set smartindent
 
-""" Tab
+""" Tab key
 set expandtab
 "" <BS> will delete a "sw" worth of space at the start of the line
 set smarttab
@@ -97,9 +109,6 @@ set foldlevel=0
 set foldcolumn=0
 
 """""" Programming languages
-let mapleader=";"
-let g:mapleader=";"
-
 " nnoremap <leader>w :call TrimTrailingWhitespace()<CR>
 
 """""" C/C++
