@@ -70,9 +70,9 @@ set nobackup
 """ Tabs
 let g:lasttab=1
 au TabLeave * let g:lasttab=tabpagenr()
-map <leader>o :tabonly<CR>
+map <leader>1 :tabonly<CR>
 map <leader>m :tabmove<CR>
-map <leader>e :tabedit <C-R>=expand("%:p:h")<CR>
+map <leader>o :tabedit <C-R>=expand("%:p:h")<CR>
 nmap <leader>l :exe "tabn ". g:lasttab<CR>
 
 "" auto reload when file changed
