@@ -178,10 +178,13 @@ let g:tagbar_width = 30
 """""" NerdTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"  " default to be left
+let g:NERDTreeDirArrows = 0
 """ Close vim if the only window left open is the NERDTree
 autocmd bufenter *
-            \ if (winnr("$") == 1 && exists("b:NERDTreeType") &&
-            \ b:NERDTreeType == "primary") | q | endif
+    \ if (winnr("$") == 1 && exists("b:NERDTreeType") &&
+    \   b:NERDTreeType == "primary") |
+    \     q |
+    \ endif
 
 
 """"""""""""""""""" Utility Functions
