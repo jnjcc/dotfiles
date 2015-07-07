@@ -200,7 +200,7 @@ fun! CurDir()
     return curdir
 endfun
 fun! IncludeGuard()
-    let basename = substitute(bufname(""), '/', '_', '')
+    let basename = substitute(bufname(""), '/', '_', 'g')
     let guard = substitute(toupper(basename), '\.', '_', "H"). '_'
     call append(0, "#ifndef " . guard)
     call append(1, "#define " . guard)
