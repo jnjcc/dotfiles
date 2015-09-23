@@ -10,6 +10,10 @@ set backspace=2
 set wrap
 "" gj & gk: treat long lines as break lines
 " map j gj
+"" copy global value of `wrap` under `vimdiff`
+""   `:set linebreak nolist` to avoid splitting words across two lines
+""   `gj` / `g$` to move by "displayed lines" instead of "numbered lines"
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 "" auto reload vimrc
 " autocmd! bufwritepost .vimrc source ~/.vimrc
